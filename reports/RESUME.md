@@ -17,3 +17,9 @@
 **Social Data Scientist.** Harmonized eight official NHANES public-use files across two survey cycles and built an auditable older-adult analysis domain. Used R complex-survey regression with pooled MEC weights, masked strata and PSUs to estimate adjusted socioeconomic associations with cognition, with confidence intervals, missingness summaries, and sensitivity analyses.
 
 **Biological Data Scientist.** Estimated design-weighted associations between measured HbA1c, systolic blood pressure, and cognitive test scores in NHANES. Compared benchmark, linear, and tree models on a later independent survey cycle, checked respondent separation, and quantified paired holdout MAE differences using masked-PSU resampling.
+
+## VCAP v1.2 evidence
+
+**Social Data Scientist.** Harmonized dated repeated assessments across three VCAP workbook sheets, analyzed baseline age and education in R mixed-effects models, and audited observed follow-up, missingness, and retest sensitivity in 5,622 eligible participants.
+
+**Biological Data Scientist.** Evaluated a random forest against score carry-forward for subsequent Digit Symbol performance with disjoint training, validation, and test participants, using paired bootstrap uncertainty and horizon-stratified evaluation. Published a reproducible aggregate research interface.

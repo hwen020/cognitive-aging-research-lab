@@ -1,0 +1,289 @@
+{
+  "source": "VCAP Dataverse V1.0",
+  "doi": "10.18130/V3/QRCQ08",
+  "workbook_sha256": "9388aa0d6afed2f75528b4978e0fba98371fbc3af44322fd83c8b54c9dac2b0a",
+  "audit": {
+    "sheets": 83,
+    "key_audit": {
+      "Demographics": {
+        "partial_keys": 0,
+        "exact_duplicates": 0,
+        "conflicting_key_rows": 6
+      },
+      "Test Dates": {
+        "partial_keys": 0,
+        "exact_duplicates": 0,
+        "conflicting_key_rows": 6
+      },
+      "DigSym1": {
+        "partial_keys": 0,
+        "exact_duplicates": 0,
+        "conflicting_key_rows": 6
+      }
+    },
+    "demographic_rows": 12332,
+    "Test Dates_unmatched": 0,
+    "DigSym1_unmatched": 0,
+    "missing_age": 0,
+    "missing_educ": 84,
+    "missing_score": 33,
+    "invalid_occasion": 0,
+    "missing_date": 0,
+    "participants": 5672,
+    "two_occasions": 2903,
+    "three_occasions": 1763,
+    "nonincreasing_date_participants": 0,
+    "eligible_people": 5622,
+    "eligible_rows": 12222,
+    "repeated_people": 2880,
+    "eligible_three": 1748,
+    "followup_years_quantiles": [
+      0.8597028001943914,
+      3.0664558478271284,
+      6.254748557465246,
+      10.059754820427523,
+      18.448017413088564
+    ],
+    "baseline_profiles": {
+      "False": {
+        "n": 2742,
+        "age0": 49.99744711889132,
+        "educ0": 15.657093362509118,
+        "score0": 70.63092633114515
+      },
+      "True": {
+        "n": 2880,
+        "age0": 53.09722222222222,
+        "educ0": 15.705729166666666,
+        "score0": 70.89131944444445
+      }
+    }
+  },
+  "model": {
+    "n": 12222,
+    "participants": 5622,
+    "primary": "random intercept and slope",
+    "intercept_aic": 93673.0683441597,
+    "slope_aic": 93583.0787617028,
+    "slope_converged": true,
+    "slope_sd": 0.5207868,
+    "coefficients": [
+      {
+        "term": "(Intercept)",
+        "estimate": 62.2144824409,
+        "lower": 61.5780264404,
+        "upper": 62.8509384414
+      },
+      {
+        "term": "years",
+        "estimate": -0.30360770431,
+        "lower": -0.35758514864,
+        "upper": -0.24963025998
+      },
+      {
+        "term": "age_c",
+        "estimate": -0.59226703313,
+        "lower": -0.61298124714,
+        "upper": -0.57155281912
+      },
+      {
+        "term": "educ_c",
+        "estimate": 1.5857991609,
+        "lower": 1.4516640215,
+        "upper": 1.7199343004
+      },
+      {
+        "term": "sex1",
+        "estimate": 6.8866450667,
+        "lower": 6.133118467,
+        "upper": 7.6401716664
+      },
+      {
+        "term": "years:age_c",
+        "estimate": -0.01900377123,
+        "lower": -0.022324884834,
+        "upper": -0.015682657626
+      }
+    ],
+    "practice": [
+      {
+        "term": "(Intercept)",
+        "estimate": 61.7420660528,
+        "lower": 61.099594267,
+        "upper": 62.3845378386
+      },
+      {
+        "term": "years",
+        "estimate": -0.54839961257,
+        "lower": -0.60842698522,
+        "upper": -0.48837223991
+      },
+      {
+        "term": "age_c",
+        "estimate": -0.59529558419,
+        "lower": -0.61608130083,
+        "upper": -0.57450986754
+      },
+      {
+        "term": "educ_c",
+        "estimate": 1.5874565292,
+        "lower": 1.4533947883,
+        "upper": 1.7215182702
+      },
+      {
+        "term": "sex1",
+        "estimate": 6.8833148672,
+        "lower": 6.1303512459,
+        "upper": 7.6362784886
+      },
+      {
+        "term": "retest",
+        "estimate": 2.5394650861,
+        "lower": 2.1046316306,
+        "upper": 2.9742985417
+      },
+      {
+        "term": "years:age_c",
+        "estimate": -0.018534388396,
+        "lower": -0.021426825982,
+        "upper": -0.015641950809
+      }
+    ],
+    "returning": [
+      {
+        "term": "(Intercept)",
+        "estimate": 63.6719295352,
+        "lower": 62.8063349659,
+        "upper": 64.5375241045
+      },
+      {
+        "term": "years",
+        "estimate": -0.35601063713,
+        "lower": -0.40350372003,
+        "upper": -0.30851755423
+      },
+      {
+        "term": "age_c",
+        "estimate": -0.58311403574,
+        "lower": -0.61418307483,
+        "upper": -0.55204499665
+      },
+      {
+        "term": "educ_c",
+        "estimate": 1.5942402771,
+        "lower": 1.4110595395,
+        "upper": 1.7774210148
+      },
+      {
+        "term": "sex1",
+        "estimate": 6.6941160768,
+        "lower": 5.6733634737,
+        "upper": 7.7148686799
+      },
+      {
+        "term": "years:age_c",
+        "estimate": -0.018309046114,
+        "lower": -0.021288328675,
+        "upper": -0.015329763553
+      }
+    ],
+    "residual_quantiles": [
+      -1.5677457291,
+      0.0087569612151,
+      1.4167617117
+    ],
+    "residual_lag1": -0.43082588382,
+    "trajectory": {
+      "[-0.001,0.001]": {
+        "n": 5622,
+        "participants": 5622,
+        "mean_time": 0,
+        "mean_score": 70.7643187478
+      },
+      "(0.001,2]": {
+        "n": 712,
+        "participants": 707,
+        "mean_time": 1.6406061757,
+        "mean_score": 71.5252808989
+      },
+      "(2,4]": {
+        "n": 1844,
+        "participants": 1760,
+        "mean_time": 2.8108297644,
+        "mean_score": 71.8107375271
+      },
+      "(4,6]": {
+        "n": 1228,
+        "participants": 1200,
+        "mean_time": 5.0419872978,
+        "mean_score": 71.7198697068
+      },
+      "(6,8]": {
+        "n": 1043,
+        "participants": 1020,
+        "mean_time": 7.0062226549,
+        "mean_score": 72.4592521572
+      },
+      "(8,Inf]": {
+        "n": 1773,
+        "participants": 1061,
+        "mean_time": 11.1684399961,
+        "mean_score": 72.388606881
+      }
+    },
+    "runtime": {
+      "R": "4.6.2",
+      "nlme": "3.1.171"
+    }
+  },
+  "prediction": {
+    "train": 1728,
+    "validation": 576,
+    "test": 576,
+    "max_id_overlap": 0,
+    "selected_min_leaf": 15,
+    "metrics": {
+      "carry_forward": {
+        "mae": 7.756944444444445,
+        "rmse": 10.853506857744694,
+        "mae_ci": [
+          7.145529513888889,
+          8.389279513888889
+        ],
+        "rmse_ci": [
+          9.60422993467422,
+          12.091507646066542
+        ]
+      },
+      "random_forest": {
+        "mae": 7.59621356427312,
+        "rmse": 10.596640430830572,
+        "mae_ci": [
+          6.997173414289262,
+          8.227112330092607
+        ],
+        "rmse_ci": [
+          9.43513087264064,
+          11.819146885088152
+        ]
+      }
+    },
+    "paired_delta_mae": -0.16073088017132353,
+    "paired_delta_ci": [
+      -0.4019046099282113,
+      0.0908400766329625
+    ],
+    "gap_groups": {
+      "up_to_3_years": {
+        "n": 353,
+        "carry_forward": 7.223796033994335,
+        "random_forest": 7.1802161412964365
+      },
+      "over_3_years": {
+        "n": 223,
+        "carry_forward": 8.600896860986547,
+        "random_forest": 8.25472069571155
+      }
+    }
+  }
+}

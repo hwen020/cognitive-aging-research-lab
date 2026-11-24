@@ -26,7 +26,7 @@ npm run test:e2e
 
 The browser suite serves the production build and uses desktop and 390 px viewports. It exercises all seven sections, browser history, pagination, marker and wave changes, and actual downloaded CSV/JSON contents. It checks the print button by intercepting the browser print call. Set `COGNITIVE_BROWSER_CHANNEL=chrome` or `msedge` to use an installed system browser.
 
-## Reproduce the longitudinal analysis
+## Reproduce the synthetic longitudinal analysis
 
 Use Python 3.12 and R 4.6.2 with recommended package nlme 3.1.171. See the [data dictionary](DATA_DICTIONARY.md) for fields, provenance and simulated missingness.
 
@@ -58,7 +58,13 @@ Before making a remote public, audit staged files, all Git refs and reachable hi
 
 ## Public-data research v1.1
 
-- [NHANES 2011–2014 research workspace](https://cognitive-aging-research-lab.onrender.com/?dataset=nhanes) contains design-weighted cross-sectional estimates, model diagnostics, and concurrent DSST holdout evaluation.
+- [NHANES 2011–2014 research workspace](https://cognitive-aging-research-lab.onrender.com/?dataset=nhanes) presents survey-weighted cross-sectional analysis of cognitive performance in NHANES 2011–2014 and cross-cycle prediction of contemporaneous cognitive test performance.
 - [Social research report](public/nhanes/social.md) and [biological research report](public/nhanes/biological.md), with pinned [CDC data sources](DATA_SOURCES.md).
 - [Study design](STUDY_DESIGN.md), [statistical analysis plan](STATISTICAL_ANALYSIS_PLAN.md), [reproduction commands](REPRODUCIBILITY.md), and [data governance](DATA_GOVERNANCE.md).
 - [HRS longitudinal framework](reports/HRS_FRAMEWORK.md) awaits independent, authorized data execution. The original Synthetic Demo and its two reports remain available.
+
+- [Dataset roadmap](research/DATASET_ROADMAP.md) and [VCAP source and access audit](research/VCAP_ACCESS_AUDIT.md).
+
+## VCAP real longitudinal research v1.2
+
+[VCAP Longitudinal Research](https://cognitive-aging-research-lab.onrender.com/?dataset=vcap) examines observed Digit Symbol scores across repeat occasions in the Virginia Cognitive Aging Project. See the [longitudinal report](reports/VCAP_LONGITUDINAL.md), [prediction report](reports/VCAP_PREDICTION.md) and [reproduction guide](reports/VCAP_REPRODUCIBILITY.md).

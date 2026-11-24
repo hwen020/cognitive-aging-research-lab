@@ -4,6 +4,7 @@ export function DatasetLinks() {
   return <nav className="dataset-links" aria-label="Research datasets">
     <a href="./">Synthetic Demo</a>
     <a href="?dataset=nhanes">NHANES 2011–2014 — Real-World Data</a>
+    <a href="?dataset=vcap">VCAP Longitudinal Research</a>
     <a href="?dataset=hrs">HRS Longitudinal — Authorized Analysis Only</a>
   </nav>;
 }
