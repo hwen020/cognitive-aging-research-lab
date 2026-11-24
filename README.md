@@ -68,3 +68,7 @@ Before making a remote public, audit staged files, all Git refs and reachable hi
 ## VCAP real longitudinal research v1.2
 
 [VCAP Longitudinal Research](https://cognitive-aging-research-lab.onrender.com/?dataset=vcap) examines observed Digit Symbol scores across repeat occasions in the Virginia Cognitive Aging Project. See the [longitudinal report](reports/VCAP_LONGITUDINAL.md), [prediction report](reports/VCAP_PREDICTION.md) and [reproduction guide](reports/VCAP_REPRODUCIBILITY.md).
+
+## Research Dataset Evaluation & Study Design
+
+The [research library](research/README.md) reviews 11 datasets using public documentation. See the [comparison and ranked recommendations](research/DATASET_COMPARISON.md), [research question matrix](research/RESEARCH_QUESTION_MATRIX.md), and [data access and governance review](research/DATA_ACCESS_AND_GOVERNANCE.md). NHANES and VCAP are the completed empirical studies. The other profiles document proposed designs.
