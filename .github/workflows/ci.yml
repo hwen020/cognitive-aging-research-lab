@@ -40,3 +40,8 @@ jobs:
       - run: python -m analysis.verify .analysis-work/ci-results.json
       - run: python -m analysis.reports
       - run: git diff --exit-code -- public/reports
+      - run: Rscript --vanilla -e "install.packages(c('survey','jsonlite'), repos='https://cran.r-project.org')"
+      - run: python -m analysis.nhanes
+      - run: Rscript --vanilla analysis/r/nhanes.R
+      - run: python -m analysis.verify_nhanes
+      - run: Rscript --vanilla tests/unit/hrs_framework_fixture.R

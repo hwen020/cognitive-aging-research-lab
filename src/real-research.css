@@ -1,0 +1,11 @@
+.dataset-links{display:flex;flex-wrap:wrap;gap:0.5rem 1.1rem;padding:.65rem 1rem;background:#132943;font-size:.92rem}
+.dataset-links a{color:#fff}
+.real-research{max-width:1120px;margin:0 auto;padding:1rem;line-height:1.6}
+.real-research section{margin-top:1.3rem;padding:1rem;border:1px solid #d3dce3;border-radius:8px;background:#fff}
+.real-research dl{display:grid;grid-template-columns:repeat(auto-fit,minmax(125px,1fr));gap:1rem}
+.real-research dt{text-transform:capitalize}
+.real-research dd{margin:0;font-weight:650}
+.research-table{max-width:100%;overflow:auto}
+.research-table th,.research-table td{padding:.5rem 1rem;white-space:nowrap;text-align:left;border-bottom:1px solid #d3dce3}
+.real-research figure{margin:1rem 0}.real-research svg{width:100%;max-width:370px}
+.data-origin{color:#076159;font-weight:700}

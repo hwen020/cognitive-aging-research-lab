@@ -1,0 +1,5 @@
+# Data governance
+
+Use public NHANES files for statistical analysis under the [NCHS Data User Agreement](https://www.cdc.gov/nchs/policy/data-user-agreement.html). SEQN links official components for the same survey participant. Do not attempt identification or link external individual records. Local XPT files and analytical row data live in ignored storage. Git and the website publish sources, code and reviewed aggregates only.
+
+The [HRS AI/LLM policy](https://hrsdata.isr.umich.edu/data-products/ai-llm-use-policy) permits work with public documentation and generic analysis code. Keep HRS and RAND HRS microdata entirely outside AI-accessible storage. A human with authorized access must execute the separate framework in an isolated environment without AI tools, following [conditions of use](https://hrsdata.isr.umich.edu/data-products/conditions-of-use). Release aggregate output only after independent disclosure and method review.

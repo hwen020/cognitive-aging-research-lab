@@ -1,0 +1,186 @@
+{
+  "DEMO_G": {
+    "XPT": {
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2011/DataFiles/DEMO_G.XPT",
+      "sha256": "eaf0525d1952626885af3e935415a1f66ad62c18698080e7354789c125af252d",
+      "bytes": 3753760
+    },
+    "htm": {
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2011/DataFiles/DEMO_G.htm",
+      "sha256": "5a8b2bc790f2a70705f035c398a76f7a8bbb5ec92323929cbbf04eb0428f59d7",
+      "bytes": 167583
+    },
+    "fields": {
+      "SEQN": "SEQN - Respondent sequence number",
+      "RIDAGEYR": "RIDAGEYR - Age in years at screening",
+      "RIAGENDR": "RIAGENDR - Gender",
+      "RIDRETH3": "RIDRETH3 - Race/Hispanic origin w/ NH Asian",
+      "DMDEDUC2": "DMDEDUC2 - Education level - Adults 20+",
+      "INDFMPIR": "INDFMPIR - Ratio of family income to poverty",
+      "WTMEC2YR": "WTMEC2YR - Full sample 2 year MEC exam weight",
+      "SDMVSTRA": "SDMVSTRA - Masked variance pseudo-stratum",
+      "SDMVPSU": "SDMVPSU - Masked variance pseudo-PSU",
+      "RIDSTATR": "RIDSTATR - Interview/Examination status"
+    },
+    "First Published": "September 2013",
+    "Last Revised": "January 2015"
+  },
+  "CFQ_G": {
+    "XPT": {
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2011/DataFiles/CFQ_G.XPT",
+      "sha256": "086c0c5a1bcfe965671ec0ff1cd607d6924ce4ddee82610d21eea69bfbf353e7",
+      "bytes": 259920
+    },
+    "htm": {
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2011/DataFiles/CFQ_G.htm",
+      "sha256": "c383115a9640bdf94a840c4349acaedf5dcc7c8f43da3ddc149d7fc2c59262c2",
+      "bytes": 60171
+    },
+    "fields": {
+      "SEQN": "SEQN - Respondent sequence number",
+      "CFDCSR": "CFDCSR - CERAD: Score Delayed Recall",
+      "CFDCST1": "CFDCST1 - CERAD: Score Trial 1 Recall",
+      "CFDCST2": "CFDCST2 - CERAD: Score Trial 2 Recall",
+      "CFDCST3": "CFDCST3 - CERAD: Score Trial 3 Recall",
+      "CFDAST": "CFDAST - Animal Fluency: Score Total",
+      "CFDDS": "CFDDS - Digit Symbol: Score"
+    },
+    "First Published": "March 2017",
+    "Last Revised": "NA"
+  },
+  "BPX_G": {
+    "XPT": {
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2011/DataFiles/BPX_G.XPT",
+      "sha256": "1dd66110f41465d601cd54f1e3c6010baafb9375f09fbcaa3aef2536876146fd",
+      "bytes": 2021600
+    },
+    "htm": {
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2011/DataFiles/BPX_G.htm",
+      "sha256": "8e538d287dd2dc82cc6f51f9b70a582b6a9dae26ca14335cca4b10e00b8858cb",
+      "bytes": 67210
+    },
+    "fields": {
+      "SEQN": "SEQN - Respondent sequence number",
+      "BPXSY1": "BPXSY1 - Systolic: Blood pres (1st rdg) mm Hg",
+      "BPXSY2": "BPXSY2 - Systolic: Blood pres (2nd rdg) mm Hg",
+      "BPXSY3": "BPXSY3 - Systolic: Blood pres (3rd rdg) mm Hg",
+      "BPXSY4": "BPXSY4 - Systolic: Blood pres (4th rdg) mm Hg",
+      "BPXDI1": "BPXDI1 - Diastolic: Blood pres (1st rdg) mm Hg",
+      "BPXDI2": "BPXDI2 - Diastolic: Blood pres (2nd rdg) mm Hg",
+      "BPXDI3": "BPXDI3 - Diastolic: Blood pres (3rd rdg) mm Hg",
+      "BPXDI4": "BPXDI4 - Diastolic: Blood pres (4th rdg) mm Hg"
+    },
+    "First Published": "September 2013",
+    "Last Revised": "NA"
+  },
+  "GHB_G": {
+    "XPT": {
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2011/DataFiles/GHB_G.XPT",
+      "sha256": "8ff7cc95461fdfd47d2c9640b944a2bcd45926a3c0e64c98a09a4cef6c0f88d7",
+      "bytes": 105840
+    },
+    "htm": {
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2011/DataFiles/GHB_G.htm",
+      "sha256": "4f2bf484e342aa9910d65f6585614cb06729e8d2f1b58cc49f70adf78e258f33",
+      "bytes": 24764
+    },
+    "fields": {
+      "SEQN": "SEQN - Respondent sequence number",
+      "LBXGH": "LBXGH - Glycohemoglobin (%)"
+    },
+    "First Published": "September 2013",
+    "Last Revised": "NA"
+  },
+  "DEMO_H": {
+    "XPT": {
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2013/DataFiles/DEMO_H.XPT",
+      "sha256": "f8f0cbb3085a323d4cde22349b164878fea1e64dbc404e65b5815c7816b547d7",
+      "bytes": 3833200
+    },
+    "htm": {
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2013/DataFiles/DEMO_H.htm",
+      "sha256": "686d31f7e0857fd0c16c9a9a4e9878ad1d6e3ec4cba9a904fcce4048c9506b68",
+      "bytes": 170377
+    },
+    "fields": {
+      "SEQN": "SEQN - Respondent sequence number",
+      "RIDAGEYR": "RIDAGEYR - Age in years at screening",
+      "RIAGENDR": "RIAGENDR - Gender",
+      "RIDRETH3": "RIDRETH3 - Race/Hispanic origin w/ NH Asian",
+      "DMDEDUC2": "DMDEDUC2 - Education level - Adults 20+",
+      "INDFMPIR": "INDFMPIR - Ratio of family income to poverty",
+      "WTMEC2YR": "WTMEC2YR - Full sample 2 year MEC exam weight",
+      "SDMVSTRA": "SDMVSTRA - Masked variance pseudo-stratum",
+      "SDMVPSU": "SDMVPSU - Masked variance pseudo-PSU",
+      "RIDSTATR": "RIDSTATR - Interview/Examination status"
+    },
+    "First Published": "October 2015",
+    "Last Revised": "NA"
+  },
+  "CFQ_H": {
+    "XPT": {
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2013/DataFiles/CFQ_H.XPT",
+      "sha256": "f1120a0fb956bfb327dbd02a8a2ad2a37054fac38acd2a23ab5b4aca1eb3dabd",
+      "bytes": 274800
+    },
+    "htm": {
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2013/DataFiles/CFQ_H.htm",
+      "sha256": "f987ff54ad51504d8e2039bd001c6c742dc0309714421e1ed11e6a64aaf39251",
+      "bytes": 60310
+    },
+    "fields": {
+      "SEQN": "SEQN - Respondent sequence number",
+      "CFDCSR": "CFDCSR - CERAD: Score Delayed Recall",
+      "CFDCST1": "CFDCST1 - CERAD: Score Trial 1 Recall",
+      "CFDCST2": "CFDCST2 - CERAD: Score Trial 2 Recall",
+      "CFDCST3": "CFDCST3 - CERAD: Score Trial 3 Recall",
+      "CFDAST": "CFDAST - Animal Fluency: Score Total",
+      "CFDDS": "CFDDS - Digit Symbol: Score"
+    },
+    "First Published": "March 2017",
+    "Last Revised": "NA"
+  },
+  "BPX_H": {
+    "XPT": {
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2013/DataFiles/BPX_H.XPT",
+      "sha256": "b6641efc30ac9b9de328dfbf4110d0d120439aadca2c2bc89f2e77310d1a0c8e",
+      "bytes": 1809600
+    },
+    "htm": {
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2013/DataFiles/BPX_H.htm",
+      "sha256": "ba8e018b46211e52d083b8ada6a64800ab03042e9289451666bac8347d88099c",
+      "bytes": 58013
+    },
+    "fields": {
+      "SEQN": "SEQN - Respondent sequence number",
+      "BPXSY1": "BPXSY1 - Systolic: Blood pres (1st rdg) mm Hg",
+      "BPXSY2": "BPXSY2 - Systolic: Blood pres (2nd rdg) mm Hg",
+      "BPXSY3": "BPXSY3 - Systolic: Blood pres (3rd rdg) mm Hg",
+      "BPXSY4": "BPXSY4 - Systolic: Blood pres (4th rdg) mm Hg",
+      "BPXDI1": "BPXDI1 - Diastolic: Blood pres (1st rdg) mm Hg",
+      "BPXDI2": "BPXDI2 - Diastolic: Blood pres (2nd rdg) mm Hg",
+      "BPXDI3": "BPXDI3 - Diastolic: Blood pres (3rd rdg) mm Hg",
+      "BPXDI4": "BPXDI4 - Diastolic: Blood pres (4th rdg) mm Hg"
+    },
+    "First Published": "October 2015",
+    "Last Revised": "NA"
+  },
+  "GHB_H": {
+    "XPT": {
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2013/DataFiles/GHB_H.XPT",
+      "sha256": "0695894ad55ac96f315a8415401977b0856c402d16762115b534bcd5dfeae89e",
+      "bytes": 112720
+    },
+    "htm": {
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2013/DataFiles/GHB_H.htm",
+      "sha256": "3e5ffb568b1c77f621d7f19088d160b38f62fb47626d1d36ef9abf885f8f6d7b",
+      "bytes": 13925
+    },
+    "fields": {
+      "SEQN": "SEQN - Respondent sequence number",
+      "LBXGH": "LBXGH - Glycohemoglobin (%)"
+    },
+    "First Published": "October 2015",
+    "Last Revised": "NA"
+  }
+}

@@ -1,0 +1,7 @@
+# HRS longitudinal framework
+
+Awaiting authorized data execution. This framework has no HRS results. Use approved HRS/RAND documentation to manually harmonize releases within the independent, human-operated environment. Record file releases, survey waves, the selected cognition instrument and proxy interview treatment. Map each participant and wave to a stable local `id` and actual `interview_year`. Supply one row per participant-year with `cognition`, age at first observation, education in years, harmonized sex category, inflation-adjusted income and consistent hypertension coding. Supply the authorized survey population attributes separately if the design calls for weighted generalization.
+
+Compare an ML random intercept to a random intercept and slope, and use a participant fixed-effects sensitivity model for modest samples. Income and hypertension can vary by visit. Review wave and instrument shifts, lagged residual correlation, follow-up length, outcome missingness and the risk of informative attrition. The template uses complete observed rows and conditions on available covariates. It does not model survey weights or censoring. Establish cohort-specific definitions and a censoring sensitivity analysis before drawing inferences.
+
+Run only under the separate workflow in [Data governance](../DATA_GOVERNANCE.md). The local result is a draft aggregate for independent disclosure review. Keep HRS records, participant IDs, raw diagnostics and run logs away from AI-accessible storage.

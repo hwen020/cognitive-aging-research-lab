@@ -55,3 +55,10 @@ The R fits use REML with a participant random intercept, a linear time term, and
 The [Render Blueprint](render.yaml) defines a single static site. Its build uses the committed results and creates `dist/`. Statistical generation runs offline and in the configured GitHub Actions workflow. Serving the demo requires no running R/Python process, database or web-service cold start. Hosting is subject to the account's static-site build and bandwidth allowance. [Render static site documentation](https://render.com/docs/static-sites)
 
 Before making a remote public, audit staged files, all Git refs and reachable history, and the GitHub repository's releases, pull requests, workflow logs and artifacts. Check known rewritten SHAs if applicable. For a new deployment, use a new GitHub repository and new Render service with the project name. After the first GitHub Actions run passes, check the live page at desktop and 390 px, plus actual CSV, JSON and Markdown downloads.
+
+## Public-data research v1.1
+
+- [NHANES 2011–2014 research workspace](https://cognitive-aging-research-lab.onrender.com/?dataset=nhanes) contains design-weighted cross-sectional estimates, model diagnostics, and concurrent DSST holdout evaluation.
+- [Social research report](public/nhanes/social.md) and [biological research report](public/nhanes/biological.md), with pinned [CDC data sources](DATA_SOURCES.md).
+- [Study design](STUDY_DESIGN.md), [statistical analysis plan](STATISTICAL_ANALYSIS_PLAN.md), [reproduction commands](REPRODUCIBILITY.md), and [data governance](DATA_GOVERNANCE.md).
+- [HRS longitudinal framework](reports/HRS_FRAMEWORK.md) awaits independent, authorized data execution. The original Synthetic Demo and its two reports remain available.
