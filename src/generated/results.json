@@ -1,0 +1,348 @@
+{
+  "cohort": {
+    "complete": {
+      "csv_sha256": "5104d2c3ca510a4f0ac537652c3f4b76f6b4e567d42cad9029c3b24b5297de74",
+      "missing": {
+        "age_at_baseline": 0,
+        "age_at_visit": 0,
+        "cognitive_score": 0,
+        "crp": 0,
+        "deprivation": 0,
+        "education_years": 0,
+        "hypertension": 0,
+        "nfl": 0,
+        "participant_id": 0,
+        "ptau": 0,
+        "sex": 0,
+        "visit_year": 0
+      },
+      "participants": 2400,
+      "rows": 12000,
+      "social": {
+        "coefficients": [
+          {
+            "ci_lower": 107.625387586489,
+            "ci_upper": 108.080159011342,
+            "df": 9594,
+            "estimate": 107.852773298915,
+            "model": "social",
+            "p": 0.0,
+            "se": 0.116000614113,
+            "term": "(Intercept)"
+          },
+          {
+            "ci_lower": -1.030424548037,
+            "ci_upper": -1.00961407503,
+            "df": 9594,
+            "estimate": -1.020019311533,
+            "model": "social",
+            "p": 0.0,
+            "se": 0.005308221926,
+            "term": "visit_year"
+          },
+          {
+            "ci_lower": -3.113668755715,
+            "ci_upper": -2.599675710514,
+            "df": 2394,
+            "estimate": -2.856672233115,
+            "model": "social",
+            "p": 3.08033207041e-96,
+            "se": 0.13105679124,
+            "term": "deprivationHigh"
+          },
+          {
+            "ci_lower": -0.226567556522,
+            "ci_upper": -0.195546165457,
+            "df": 2394,
+            "estimate": -0.211056860989,
+            "model": "social",
+            "p": 1.51458277767e-137,
+            "se": 0.007909764559,
+            "term": "age_centered"
+          },
+          {
+            "ci_lower": -0.27121277193,
+            "ci_upper": 0.239294116721,
+            "df": 2394,
+            "estimate": -0.015959327604,
+            "model": "social",
+            "p": 0.902429624023,
+            "se": 0.130167898879,
+            "term": "sexMale"
+          },
+          {
+            "ci_lower": 0.389323271006,
+            "ci_upper": 0.470042269551,
+            "df": 2394,
+            "estimate": 0.429682770279,
+            "model": "social",
+            "p": 4.65422089922e-89,
+            "se": 0.020581548798,
+            "term": "education_centered"
+          },
+          {
+            "ci_lower": -1.938418134099,
+            "ci_upper": -1.376713759326,
+            "df": 2394,
+            "estimate": -1.657565946713,
+            "model": "social",
+            "p": 3.51686738208e-30,
+            "se": 0.143222118802,
+            "term": "hypertensionYes"
+          },
+          {
+            "ci_lower": -0.260681189493,
+            "ci_upper": -0.237169643133,
+            "df": 9594,
+            "estimate": -0.248925416313,
+            "model": "social",
+            "p": 0.0,
+            "se": 0.005997196982,
+            "term": "visit_year:deprivationHigh"
+          },
+          {
+            "ci_lower": -0.033548117498,
+            "ci_upper": -0.03212910827,
+            "df": 9594,
+            "estimate": -0.032838612884,
+            "model": "social",
+            "p": 0.0,
+            "se": 0.000361953133,
+            "term": "visit_year:age_centered"
+          },
+          {
+            "ci_lower": -0.007817620994,
+            "ci_upper": 0.015534458361,
+            "df": 9594,
+            "estimate": 0.003858418684,
+            "model": "social",
+            "p": 0.517153232494,
+            "se": 0.005956521008,
+            "term": "visit_year:sexMale"
+          },
+          {
+            "ci_lower": -0.001246604277,
+            "ci_upper": 0.002445718983,
+            "df": 9594,
+            "estimate": 0.000599557353,
+            "model": "social",
+            "p": 0.524403226554,
+            "se": 0.000941817674,
+            "term": "visit_year:education_centered"
+          },
+          {
+            "ci_lower": -0.128532119216,
+            "ci_upper": -0.102838116989,
+            "df": 9594,
+            "estimate": -0.115685118102,
+            "model": "social",
+            "p": 1.20024707123e-68,
+            "se": 0.006553885918,
+            "term": "visit_year:hypertensionYes"
+          }
+        ],
+        "diagnostics": [
+          {
+            "excluded_rows": 0,
+            "formula": "cognitive_score ~ visit_year * deprivation + visit_year * (age_centered +      sex + education_centered + hypertension)",
+            "model": "social",
+            "n": 12000,
+            "nlme_version": "3.1.171",
+            "participants": 2400,
+            "r_version": "4.6.2",
+            "random_intercept_sd": 3.0833695,
+            "residual_fit_correlation": 0.031820916784,
+            "residual_lag1_acf": -0.253527590767,
+            "residual_q025": -1.752663038265,
+            "residual_q975": 1.775615993018,
+            "residual_sd": 0.9156744603
+          }
+        ]
+      },
+      "wave_counts": {
+        "0": 2400,
+        "2": 2400,
+        "4": 2400,
+        "6": 2400,
+        "8": 2400
+      }
+    },
+    "incomplete": {
+      "csv_sha256": "506bcb34df4764c24cab64861625fd375afb390d6acf47d639af8e3df1d49764",
+      "missing": {
+        "age_at_baseline": 0,
+        "age_at_visit": 0,
+        "cognitive_score": 0,
+        "crp": 456,
+        "deprivation": 0,
+        "education_years": 0,
+        "hypertension": 0,
+        "nfl": 514,
+        "participant_id": 0,
+        "ptau": 504,
+        "sex": 0,
+        "visit_year": 0
+      },
+      "participants": 2400,
+      "rows": 11004,
+      "social": {
+        "coefficients": [
+          {
+            "ci_lower": 107.62126923641,
+            "ci_upper": 108.077277488278,
+            "df": 8598,
+            "estimate": 107.849273362344,
+            "model": "social",
+            "p": 0.0,
+            "se": 0.116314397114,
+            "term": "(Intercept)"
+          },
+          {
+            "ci_lower": -1.032774276505,
+            "ci_upper": -1.010678694114,
+            "df": 8598,
+            "estimate": -1.02172648531,
+            "model": "social",
+            "p": 0.0,
+            "se": 0.00563593824,
+            "term": "visit_year"
+          },
+          {
+            "ci_lower": -3.117109939977,
+            "ci_upper": -2.601654802576,
+            "df": 2394,
+            "estimate": -2.859382371276,
+            "model": "social",
+            "p": 6.52474605441e-96,
+            "se": 0.131429592222,
+            "term": "deprivationHigh"
+          },
+          {
+            "ci_lower": -0.226435757315,
+            "ci_upper": -0.195324735835,
+            "df": 2394,
+            "estimate": -0.210880246575,
+            "model": "social",
+            "p": 1.16448664981e-136,
+            "se": 0.007932618321,
+            "term": "age_centered"
+          },
+          {
+            "ci_lower": -0.270212252068,
+            "ci_upper": 0.241742283225,
+            "df": 2394,
+            "estimate": -0.014234984422,
+            "model": "social",
+            "p": 0.91317244099,
+            "se": 0.130537016566,
+            "term": "sexMale"
+          },
+          {
+            "ci_lower": 0.38945127084,
+            "ci_upper": 0.470401697574,
+            "df": 2394,
+            "estimate": 0.429926484207,
+            "model": "social",
+            "p": 1.08550791373e-88,
+            "se": 0.020640557837,
+            "term": "education_centered"
+          },
+          {
+            "ci_lower": -1.930266505014,
+            "ci_upper": -1.36689277211,
+            "df": 2394,
+            "estimate": -1.648579638562,
+            "model": "social",
+            "p": 1.02057003736e-29,
+            "se": 0.143647767985,
+            "term": "hypertensionYes"
+          },
+          {
+            "ci_lower": -0.26026023721,
+            "ci_upper": -0.234978478176,
+            "df": 8598,
+            "estimate": -0.247619357693,
+            "model": "social",
+            "p": 7.022702316e-298,
+            "se": 0.006448638918,
+            "term": "visit_year:deprivationHigh"
+          },
+          {
+            "ci_lower": -0.033543414771,
+            "ci_upper": -0.032017456966,
+            "df": 8598,
+            "estimate": -0.032780435869,
+            "model": "social",
+            "p": 0.0,
+            "se": 0.000389227303,
+            "term": "visit_year:age_centered"
+          },
+          {
+            "ci_lower": -0.005037722267,
+            "ci_upper": 0.020013243313,
+            "df": 8598,
+            "estimate": 0.007487760523,
+            "model": "social",
+            "p": 0.241295519532,
+            "se": 0.006389770244,
+            "term": "visit_year:sexMale"
+          },
+          {
+            "ci_lower": -0.001387330073,
+            "ci_upper": 0.002579917346,
+            "df": 8598,
+            "estimate": 0.000596293637,
+            "model": "social",
+            "p": 0.555699484247,
+            "se": 0.001011929038,
+            "term": "visit_year:education_centered"
+          },
+          {
+            "ci_lower": -0.131414747981,
+            "ci_upper": -0.103487900443,
+            "df": 8598,
+            "estimate": -0.117451324212,
+            "model": "social",
+            "p": 3.71257767239e-60,
+            "se": 0.007123323803,
+            "term": "visit_year:hypertensionYes"
+          }
+        ],
+        "diagnostics": [
+          {
+            "excluded_rows": 0,
+            "formula": "cognitive_score ~ visit_year * deprivation + visit_year * (age_centered +      sex + education_centered + hypertension)",
+            "model": "social",
+            "n": 11004,
+            "nlme_version": "3.1.171",
+            "participants": 2400,
+            "r_version": "4.6.2",
+            "random_intercept_sd": 3.0892211,
+            "residual_fit_correlation": 0.035462373269,
+            "residual_lag1_acf": -0.269767364943,
+            "residual_q025": -1.74182873306,
+            "residual_q975": 1.763898992291,
+            "residual_sd": 0.916397944654
+          }
+        ]
+      },
+      "wave_counts": {
+        "0": 2400,
+        "2": 2300,
+        "4": 2194,
+        "6": 2097,
+        "8": 2013
+      }
+    }
+  },
+  "numpy_version": "2.5.5",
+  "pandas_version": "2.3.3",
+  "schema_version": 1,
+  "seed": 20261123,
+  "source": "deterministic synthetic simulation",
+  "source_sha256": {
+    "analysis/cohort.py": "080bfd33b58cf93e37b10f257b3de37172b6c80287695945075f2aaffbbdd48d",
+    "analysis/r/fit.R": "48efe451cce7a2bb1a41b789bc128064c8d46e9cd9079653753684df16864594",
+    "analysis/run.py": "30f9ce6c2f7327a20cacf51eb6a067f62d91a404f66577bb9935be3f5fcfb45d"
+  }
+}

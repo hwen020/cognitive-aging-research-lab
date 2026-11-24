@@ -6,6 +6,7 @@ import { cohortSize, csv, data, filterRows, generateCohort, pearson, YEARS } fro
 test('the seeded cohort regenerates the same CSV and has unique complete waves', () => {
   const hash = (value: string) => createHash('sha256').update(value).digest('hex');
   assert.equal(hash(csv(generateCohort())), hash(csv(data)));
+  assert.equal(hash(csv(data)), '5104d2c3ca510a4f0ac537652c3f4b76f6b4e567d42cad9029c3b24b5297de74');
   assert.equal(cohortSize(data), 2400);
   assert.equal(data.length, 12000);
   assert.equal(new Set(data.map(({ participant_id, visit_year }) => `${participant_id}/${visit_year}`)).size, data.length);

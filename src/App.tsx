@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { LongitudinalResults } from './ResearchResults';
 import { CohortStats, Scatter, SummaryStats, TrajectoryChart, TrajectorySummary } from './charts';
 import { columns, data, dictionary, downloadCohort, downloadJson, filterRows, format, pearson, report, reportCounts, type Marker } from './cohort';
 import './style.css';
@@ -67,7 +68,7 @@ export function App() {
           <div className="crumb">Research / <b>{label}</b></div>
           <div className="top-actions"><span className="tag">Synthetic data</span><button className="button" onClick={() => downloadCohort(data)}>Export CSV</button></div>
         </div>
-        <p className="notice"><strong>Research integrity.</strong> All records are generated from a fixed seed. Charts show descriptive patterns in simulated data. Adjusted inference and held-out prediction are pending.</p>
+        <p className="notice"><strong>Research integrity.</strong> All records are simulated from a fixed seed. The results characterize this simulation and its analytical workflow.</p>
         <section id="overview" hidden={page !== 'overview'}>
           <div className="heading">
           <div>
@@ -273,12 +274,12 @@ export function App() {
           <div id="trajectoryText">
           <TrajectorySummary />
           </div>
-          <div className="callout">A true mixed-effects analysis must model repeated observations, covariate adjustment, residual assumptions and uncertainty intervals. This screen is a descriptive preview, <b>not</b> a fitted mixed-effects model.</div>
+          <div className="callout">These means summarize the complete cohort without adjustment. The fitted repeated-measures model appears below.</div>
           </article>
           </div>
           <article className="panel card">
           <div className="cardhead">
-          <h2>Planned statistical workflow</h2>
+          <h2>Longitudinal workflow</h2>
           <span className="pill shared">Codex implementation</span>
           </div>
           <div className="flowlist">
@@ -296,6 +297,7 @@ export function App() {
           </div>
           </div>
           </article>
+          <LongitudinalResults />
         </section>
         <section id="causal" hidden={page !== 'causal'}>
           <div className="heading">

@@ -1,0 +1,5 @@
+{
+  "R": "4.6.2",
+  "nlme": "3.1.171",
+  "package_source": "Recommended package shipped with the matching R distribution"
+}
