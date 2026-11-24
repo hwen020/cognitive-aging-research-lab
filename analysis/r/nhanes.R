@@ -100,7 +100,7 @@ analyze_curve <- function() {
   as.numeric(survey::regTermTest(fit, ~I(sbp10^2) + I(hba1c^2))$p)
 }
 result <- list(
-  source = "CDC NHANES repeated cross-sectional 2011–2014",
+  source = "CDC NHANES repeated cross-sectional 2011-2014",
   runtime = list(r = as.character(getRversion()), survey = as.character(packageVersion("survey"))),
   counts = list(total_demographics = nrow(read.csv(input)), mec = nrow(data), age_60_plus = nrow(vars),
                 dsst_observed = sum(!is.na(vars$dsst)), social_primary = social_models$dsst$n,
