@@ -39,11 +39,14 @@ test('cohort pagination, filtered CSV, dictionary, report, and print', async ({ 
   await page.getByLabel('Sex (synthetic)').selectOption('Female');
   await page.getByLabel('Deprivation group', { exact: true }).selectOption('High');
   await page.getByLabel('Hypertension', { exact: true }).selectOption('Yes');
+  await page.getByLabel('Education', { exact: true }).selectOption('below14');
   const status = await page.getByRole('status').textContent();
   const [header, ...rows] = (await download(page, 'Export filtered CSV')).trim().split('\n');
   expect(header).toContain('participant_id,visit_year,age_at_baseline,age_at_visit');
   expect(status).toContain(`of ${rows.length.toLocaleString()} matching rows`);
   expect(rows.every(row => /^P\d{4},8,[\d.]+,[\d.]+,Female,High,[\d.]+,Yes,/.test(row))).toBe(true);
+  expect(rows.every(row => Number(row.split(',')[6]) < 14)).toBe(true);
+  expect(await page.locator('.wave-summary [data-count]').evaluateAll(bars => bars.map(bar => Number(bar.getAttribute('data-count'))))).toEqual([0, 0, 0, 0, rows.length]);
   const dictionary = JSON.parse(await download(page, 'Data dictionary JSON'));
   expect(Object.keys(dictionary.fields).sort()).toEqual(header.split(',').sort());
   await page.getByRole('link', { name: 'Research Report', exact: true }).click();
@@ -55,6 +58,13 @@ test('cohort pagination, filtered CSV, dictionary, report, and print', async ({ 
   const cohort = await download(page, 'Download cohort CSV');
   expect(cohort.trim().split('\n')).toHaveLength(12_001);
   expect(await download(page, 'Export CSV')).toBe(cohort);
+  for (const track of ['Social', 'Biological']) {
+    const pending = page.waitForEvent('download');
+    await page.getByRole('link', { name: `${track} report Markdown` }).click();
+    const contents = await readFile((await (await pending).path())!, 'utf8');
+    expect(contents).toContain(`${track} research`);
+    expect(contents).toContain('CSV SHA-256');
+  }
   await page.evaluate(() => { window.print = () => document.body.setAttribute('data-printed', 'true'); });
   await page.getByRole('button', { name: 'Print / PDF' }).click();
   await expect(page.locator('body')).toHaveAttribute('data-printed', 'true');

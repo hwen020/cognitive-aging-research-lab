@@ -1,10 +1,10 @@
-import { createHash } from 'node:crypto';
-import assert from 'node:assert/strict';
-import { test } from 'node:test';
-import { cohortSize, csv, data, filterRows, generateCohort, pearson, YEARS } from '../../src/cohort';
+const { createHash } = require('node:crypto');
+const assert = require('node:assert/strict');
+const { test } = require('node:test');
+const { cohortSize, csv, data, filterRows, generateCohort, pearson, YEARS } = require('../../.test-build/cohort.js');
 
 test('the seeded cohort regenerates the same CSV and has unique complete waves', () => {
-  const hash = (value: string) => createHash('sha256').update(value).digest('hex');
+  const hash = value => createHash('sha256').update(value).digest('hex');
   assert.equal(hash(csv(generateCohort())), hash(csv(data)));
   assert.equal(hash(csv(data)), '5104d2c3ca510a4f0ac537652c3f4b76f6b4e567d42cad9029c3b24b5297de74');
   assert.equal(cohortSize(data), 2400);

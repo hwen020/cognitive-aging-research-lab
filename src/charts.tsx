@@ -26,6 +26,19 @@ export function CohortStats({ rows }: { rows: Row[] }) {
   </>;
 }
 
+export function CohortWaves({ rows }: { rows: Row[] }) {
+  const counts = YEARS.map(year => rows.filter(row => row.visit_year === year).length);
+  return <div className="wave-summary">
+    <h3>Matching observations by visit</h3>
+    {YEARS.map((year, index) => <div className="feature" key={year} data-count={counts[index]}>
+      <span>Year {year}</span>
+      <div className="bartrack" aria-hidden="true"><div className="barfill" style={{ width: `${counts[index] / (Math.max(...counts) || 1) * 100}%` }} /></div>
+      <span className="right">{counts[index].toLocaleString()}</span>
+    </div>)}
+    <p className="footnote">Complete simulation. Matching observations have no missing fields.</p>
+  </div>;
+}
+
 export function TrajectoryChart() {
   const values = trajectories.flatMap(series => series.points.map(point => point.mean));
   const low = Math.floor(Math.min(...values) / 5) * 5;

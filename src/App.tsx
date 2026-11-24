@@ -3,7 +3,7 @@ import { LongitudinalResults, results } from './ResearchResults';
 import { BiomarkerModels, PredictionResults } from './BiologicalResults';
 import { MarkerProfile } from './MarkerProfile';
 import { CausalResults } from './CausalResults';
-import { CohortStats, Scatter, SummaryStats, TrajectoryChart, TrajectorySummary } from './charts';
+import { CohortStats, CohortWaves, Scatter, SummaryStats, TrajectoryChart, TrajectorySummary } from './charts';
 import { columns, data, dictionary, downloadCohort, downloadJson, filterRows, format, pearson, report, reportCounts, type Marker } from './cohort';
 import './style.css';
 
@@ -18,7 +18,7 @@ const pages = [
 ] as const;
 
 const currentPage = () => pages.find(([id]) => location.hash === '#' + id) ?? pages[0];
-const initialFilters = { visit_year: 'all', sex: 'all', deprivation: 'all', hypertension: 'all' };
+const initialFilters = { visit_year: 'all', sex: 'all', deprivation: 'all', hypertension: 'all', education: 'all' };
 const pageSize = 80;
 
 export function App() {
@@ -217,10 +217,19 @@ export function App() {
           <option value="No">No</option>
           </select>
           </div>
+          <div className="field">
+          <label htmlFor="educationFilter">Education</label>
+          <select id="educationFilter" value={filters.education} onChange={event => updateFilter('education', event.target.value)}>
+          <option value="all">All</option>
+          <option value="below14">Below 14 years</option>
+          <option value="14plus">14 years or more</option>
+          </select>
+          </div>
           </div>
           <div className="stats" id="cohortStats" style={{marginBottom: '10px'}}>
           <CohortStats rows={filtered} />
           </div>
+          <CohortWaves rows={filtered} />
           <div className="cardhead">
           <h2>Observation records</h2>
           <div className="downloadrow">
@@ -418,6 +427,8 @@ export function App() {
           <button className="button primary" onClick={() => downloadJson({ ...report(), analyses: results }, 'research_demo_report.json')}>Download report JSON</button>
           <button className="button" onClick={() => window.print()}>Print / PDF</button>
           <button className="button" onClick={() => downloadCohort(data)}>Download cohort CSV</button>
+          <a className="button" href="./reports/social.md" download>Social report Markdown</a>
+          <a className="button" href="./reports/biological.md" download>Biological report Markdown</a>
           </div>
           </article>
         </section>

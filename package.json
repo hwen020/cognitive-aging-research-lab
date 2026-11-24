@@ -3,7 +3,6 @@
     "@playwright/test": "1.58.2",
     "@types/react": "19.1.10",
     "@types/react-dom": "19.1.7",
-    "tsx": "4.21.0",
     "typescript": "5.8.3",
     "vite": "6.4.6"
   },
@@ -16,7 +15,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc --noEmit && vite build",
-    "test": "tsx --test tests/unit/cohort.test.ts",
+    "test": "tsc src/cohort.ts --outDir .test-build --module commonjs --moduleResolution node --target ES2022 --strict --skipLibCheck && node --test tests/unit/cohort.test.cjs",
     "test:e2e": "playwright test"
   },
   "private": true

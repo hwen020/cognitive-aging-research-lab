@@ -20,22 +20,46 @@ export type Row = {
 
 export function generateCohort(): Row[] {
   let rngState = seed;
-  function random(){rngState=(1664525*rngState+1013904223)>>>0;return rngState/4294967296}function randn(){return Math.sqrt(-2*Math.log(Math.max(random(),1e-12)))*Math.cos(2*Math.PI*random())}function round(x: number, d = 1){return +x.toFixed(d)}
+  function random() {
+    rngState = (1664525 * rngState + 1013904223) >>> 0;
+    return rngState / 4294967296;
+  }
+  function normal() {
+    return Math.sqrt(-2 * Math.log(Math.max(random(), 1e-12))) * Math.cos(2 * Math.PI * random());
+  }
+  const round = (value: number, digits = 1) => Number(value.toFixed(digits));
   const rows: Row[] = [];
-  for(let i=1;i<=2400;i++){const age=round(54+random()*30);
-  const sex=random()<.54?'Female':'Male';
-  const deprivation=random()<.49?'High':'Low';
-  const education=round(9+random()*11);
-  const htn=random()<(age-48)/65+(deprivation==='High'?.12:0)?'Yes':'No';
-  const personNoise=randn()*3.1;
-  const baseCognition=111-.21*(age-55)+.43*(education-12)-(deprivation==='High'?2.8:0)-(htn==='Yes'?1.5:0)+personNoise;
-  const inflammation=Math.max(.15,1.3+randn()*.35+(htn==='Yes'?.47:0)+(deprivation==='High'?.38:0));
-  for(const yr of YEARS){const change=-.52*yr-.033*yr*(age-55)-(deprivation==='High'?.24*yr:0)-(htn==='Yes'?.12*yr:0);
-  const crp=Math.max(.1,inflammation+yr*.06+randn()*.25);
-  const ptau=Math.max(0,12+.18*(age-55)+.48*yr+randn()*2.5);
-  const nfl=Math.max(0,16+.26*(age-55)+.51*yr+randn()*3.4);
-  const cognition=round(baseCognition+change-.2*crp-.055*ptau+randn()*.9);
-  rows.push({participant_id:'P'+String(i).padStart(4,'0'),visit_year:yr,age_at_baseline:age,age_at_visit:round(age+yr),sex,deprivation,education_years:education,hypertension:htn,crp:round(crp,2),ptau:round(ptau,2),nfl:round(nfl,2),cognitive_score:cognition})}
+  for (let participant = 1; participant <= 2400; participant++) {
+    const age = round(54 + random() * 30);
+    const sex = random() < .54 ? 'Female' : 'Male';
+    const high = random() < .49;
+    const education = round(9 + random() * 11);
+    const hypertension = random() < (age - 48) / 65 + (high ? .12 : 0);
+    const personNoise = normal() * 3.1;
+    const baseCognition = 111 - .21 * (age - 55) + .43 * (education - 12)
+      - (high ? 2.8 : 0) - (hypertension ? 1.5 : 0) + personNoise;
+    const inflammation = Math.max(.15, 1.3 + normal() * .35 + (hypertension ? .47 : 0) + (high ? .38 : 0));
+    for (const year of YEARS) {
+      const change = -.52 * year - .033 * year * (age - 55) - (high ? .24 * year : 0) - (hypertension ? .12 * year : 0);
+      const crp = Math.max(.1, inflammation + year * .06 + normal() * .25);
+      const ptau = Math.max(0, 12 + .18 * (age - 55) + .48 * year + normal() * 2.5);
+      const nfl = Math.max(0, 16 + .26 * (age - 55) + .51 * year + normal() * 3.4);
+      const cognition = round(baseCognition + change - .2 * crp - .055 * ptau + normal() * .9);
+      rows.push({
+        participant_id: 'P' + String(participant).padStart(4, '0'),
+        visit_year: year,
+        age_at_baseline: age,
+        age_at_visit: round(age + year),
+        sex,
+        deprivation: high ? 'High' : 'Low',
+        education_years: education,
+        hypertension: hypertension ? 'Yes' : 'No',
+        crp: round(crp, 2),
+        ptau: round(ptau, 2),
+        nfl: round(nfl, 2),
+        cognitive_score: cognition,
+      });
+    }
   }
   return rows;
 }
@@ -47,9 +71,10 @@ export const mean = (rows: Row[], value: (row: Row) => number) =>
 export const format = (value: number, precision = 1) => Number.isFinite(value) ? value.toFixed(precision) : '—';
 
 type FilterKey = 'visit_year' | 'sex' | 'deprivation' | 'hypertension';
-export function filterRows(rows: Row[], filters: Record<FilterKey, string>) {
+export function filterRows(rows: Row[], { education = 'all', ...filters }: Record<FilterKey, string> & { education?: string }) {
   return rows.filter(row => Object.entries(filters).every(([key, value]) =>
-    value === 'all' || String(row[key as FilterKey]) === value));
+    value === 'all' || String(row[key as FilterKey]) === value)
+    && (education === 'all' || (education === 'below14' ? row.education_years < 14 : row.education_years >= 14)));
 }
 
 export const trajectories = (['Low', 'High'] as const).map((group, index) => ({
@@ -106,8 +131,7 @@ export const report = () => ({
   observations: data.length,
   visit_years: YEARS,
   descriptive_trajectories: trajectories.map(({ group, points }) => ({ group, points })),
-  analyses: { adjusted_longitudinal: 'not yet computed', iptw: 'not yet computed', prediction: 'not yet computed' },
-  limitations: ['Synthetic data and arbitrary cognition scale', 'Descriptive associations only', 'No real-world generalization'],
+  limitations: ['Synthetic data and arbitrary cognition scale', 'Analyses characterize the specified simulations', 'No real-world generalization'],
 });
 
 export function csv(rows: Row[]) {

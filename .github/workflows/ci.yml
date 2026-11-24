@@ -1,0 +1,42 @@
+name: Research reproducibility
+on: [push, pull_request]
+
+permissions:
+  contents: read
+
+jobs:
+  demo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - run: npm run build
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:e2e
+
+  analysis:
+    runs-on: ubuntu-latest
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: '4.6.2'
+      - run: python -m pip install -r requirements.txt
+      - run: python -m pytest -q
+      - run: Rscript --vanilla tests/unit/mixed_fixture.R
+      - run: python -m analysis.run --phase 3 --out .analysis-work/ci-results.json
+      - run: python -m analysis.verify .analysis-work/ci-results.json
+      - run: python -m analysis.reports
+      - run: git diff --exit-code -- public/reports

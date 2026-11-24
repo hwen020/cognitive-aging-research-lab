@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: cognitive-aging-research-lab
+    runtime: static
+    buildCommand: npm ci && npm run build
+    staticPublishPath: ./dist
+    autoDeployTrigger: checksPass
+    envVars:
+      - key: NODE_VERSION
+        value: '24'
+      - key: SKIP_INSTALL_DEPS
+        value: 'true'

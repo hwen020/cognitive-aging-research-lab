@@ -8,5 +8,6 @@ __pycache__/
 .venv/
 .tools/
 .analysis-work/
+.test-build/
 .env
 .env.*
