@@ -1,0 +1,23 @@
+{
+  "devDependencies": {
+    "@playwright/test": "1.58.2",
+    "@types/react": "19.1.10",
+    "@types/react-dom": "19.1.7",
+    "tsx": "4.21.0",
+    "typescript": "5.8.3",
+    "vite": "6.4.6"
+  },
+  "dependencies": {
+    "react": "19.1.1",
+    "react-dom": "19.1.1"
+  },
+  "name": "cognitive-aging-research-lab",
+  "version": "0.1.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "test": "tsx --test tests/unit/cohort.test.ts",
+    "test:e2e": "playwright test"
+  },
+  "private": true
+}
