@@ -49,7 +49,9 @@ test('cohort pagination, filtered CSV, dictionary, report, and print', async ({ 
   await page.getByRole('link', { name: 'Research Report', exact: true }).click();
   const report = JSON.parse(await download(page, 'Download report JSON'));
   expect(report.observations).toBe(12_000);
-  expect(report.analyses.iptw).toBe('not yet computed');
+  expect(report.analyses.cohort.complete.iptw.status).toBe('computed');
+  expect(report.analyses.cohort.incomplete.iptw.status).toBe('withheld');
+  expect(report.analyses.cohort.complete.prediction.participant_overlap).toBe(0);
   const cohort = await download(page, 'Download cohort CSV');
   expect(cohort.trim().split('\n')).toHaveLength(12_001);
   expect(await download(page, 'Export CSV')).toBe(cohort);
@@ -69,4 +71,10 @@ test('biomarker wave and marker selection recompute the association', async ({ p
   await expect(r).not.toHaveText(crp!);
   await expect(page.getByRole('img', { name: /NfL proxy/ })).toBeVisible();
   await expect(page.locator('#corrSample')).toContainText('Year 8');
+  await page.getByLabel('Synthetic participant ID', { exact: false }).fill('P0001');
+  await expect(page.getByRole('img', { name: /across visits for P0001/ })).toBeVisible();
+  await expect(page.getByRole('region', { name: 'Adjusted biomarker estimates' }).getByRole('row')).toHaveCount(13);
+  await page.getByRole('link', { name: 'Prediction Modeling' }).click();
+  await expect(page.getByRole('region', { name: 'complete held-out model metrics', exact: true }).getByRole('row')).toHaveCount(6);
+  await expect(page.getByText(/Train 1,800 · test 600 · overlapping IDs 0/)).toBeVisible();
 });

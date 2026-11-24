@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
-import { LongitudinalResults } from './ResearchResults';
+import { LongitudinalResults, results } from './ResearchResults';
+import { BiomarkerModels, PredictionResults } from './BiologicalResults';
+import { MarkerProfile } from './MarkerProfile';
 import { CausalResults } from './CausalResults';
 import { CohortStats, Scatter, SummaryStats, TrajectoryChart, TrajectorySummary } from './charts';
 import { columns, data, dictionary, downloadCohort, downloadJson, filterRows, format, pearson, report, reportCounts, type Marker } from './cohort';
@@ -162,8 +164,8 @@ export function App() {
           <small>Descriptive Pearson correlations on synthetic records</small>
           </div>
           <div className="flowbox">
-          <b>Prediction experiment design</b>
-          <small>Participant-grouped splits and leakage checks required</small>
+          <b>Held-out prediction experiment</b>
+          <small>Baseline-only features and participant-grouped validation</small>
           </div>
           </div>
           </article>
@@ -363,8 +365,8 @@ export function App() {
           <div className="callout">Correlations are computed from deterministic synthetic observations. They do not show biological causation, clinical utility, or predictive performance.</div>
           <div className="flowlist">
           <div className="flowbox">
-          <b>Next research implementation</b>
-          <small>Covariate-adjusted linear / mixed-effects models, multiple-testing correction, missingness sensitivity</small>
+          <b>Adjusted marker models</b>
+          <small>Separate baseline levels and within-person change with mixed effects and BH adjustment.</small>
           </div>
           <div className="flowbox">
           <b>Real-world data boundary</b>
@@ -373,86 +375,19 @@ export function App() {
           </div>
           </article>
           </div>
+          <MarkerProfile rows={markerRows} marker={marker} />
+          <BiomarkerModels />
         </section>
         <section id="prediction" hidden={page !== 'prediction'}>
           <div className="heading">
           <div>
           <div className="eyebrow">Biological research track</div>
           <h1>Prediction Modeling</h1>
-          <div className="subtitle">A transparent experimental protocol, without invented model scores.</div>
+          <div className="subtitle">Baseline-only prediction of simulated Year-8 cognitive scores.</div>
           </div>
           <span className="pill bio">Biological DS</span>
           </div>
-          <div className="gridhalf">
-          <article className="panel card">
-          <div className="cardhead">
-          <h2>Registered design · v0.1</h2>
-          <span className="pill bio">Not trained</span>
-          </div>
-          <div className="rowline">
-          <div>
-          <b>Target</b>
-          <small>Year-8 cognition score</small>
-          </div>
-          <span className="pill shared">Regression</span>
-          </div>
-          <div className="rowline">
-          <div>
-          <b>Baseline predictors</b>
-          <small>Age, sex, education, deprivation, HTN, CRP, p-tau, NfL</small>
-          </div>
-          </div>
-          <div className="rowline">
-          <div>
-          <b>Split strategy</b>
-          <small>Participant-level group holdout; no timepoint leakage</small>
-          </div>
-          </div>
-          <div className="rowline">
-          <div>
-          <b>Metrics</b>
-          <small>MAE, RMSE, R² with held-out confidence intervals</small>
-          </div>
-          </div>
-          <div className="rowline">
-          <div>
-          <b>Comparators</b>
-          <small>Baseline mean, Ridge, Random Forest</small>
-          </div>
-          </div>
-          </article>
-          <article className="panel card">
-          <div className="cardhead">
-          <h2>Evaluation status</h2>
-          <span className="pill shared">Protocol only</span>
-          </div>
-          <div className="empty">
-          <div style={{fontSize: '35px'}}>▧</div>
-          <h2>No validated model metrics yet</h2>
-          <p>Held-out evaluation is pending.</p>
-          </div>
-          <div className="callout">For a real longitudinal study, participants—not individual observations—must be split into train/test groups. Hyperparameter tuning stays inside training folds.</div>
-          </article>
-          </div>
-          <article className="panel card">
-          <div className="cardhead">
-          <h2>Required implementation checkpoints</h2>
-          </div>
-          <div className="flowlist">
-          <div className="flowbox">
-          <b>Baseline-only feature cut-off</b>
-          <small>Exclude measurements after the prediction index date; document eligibility and censoring.</small>
-          </div>
-          <div className="flowbox">
-          <b>Group-aware cross-validation</b>
-          <small>GroupKFold or equivalent; fit imputation and scaling inside CV pipelines only.</small>
-          </div>
-          <div className="flowbox">
-          <b>Model card and error analysis</b>
-          <small>Report sample counts, subgroup error, confidence intervals, assumptions and limitations.</small>
-          </div>
-          </div>
-          </article>
+          <PredictionResults />
         </section>
         <section id="report" hidden={page !== 'report'}>
           <div className="heading">
@@ -474,13 +409,13 @@ export function App() {
           <h3>Social research workstream</h3>
           <p>Stratified synthetic cognitive trajectories are visualized for neighborhood deprivation groups. The complete mode includes IPTW balance and overlap diagnostics, bootstrap uncertainty, and truncation sensitivity. The incomplete-mode effect is withheld because attrition requires a censoring design.</p>
           <h3>Biological research workstream</h3>
-          <p>Three synthetic biomarker variables are explored using unadjusted Pearson associations with cognitive scores. These are demo variables, not medical measurements. Proposed next steps include adjusted models and multiple-testing controls.</p>
+          <p>Three synthetic biomarker variables are explored using unadjusted Pearson associations with cognitive scores. These are demo variables, not medical measurements. Adjusted models distinguish baseline marker level and change since baseline, with six terms per mode adjusted for multiple tests.</p>
           <h3>Prediction protocol</h3>
-          <p>A baseline-to-Year-8 prediction task is specified with participant-grouped evaluation. There are no trained model outputs, accuracy metrics or clinical claims in this release.</p>
+          <p>The baseline-to-Year-8 experiment reports held-out regression metrics, paired marker comparisons, subgroup error, and permutation importance.</p>
           <h3>Reproducibility and limitations</h3>
           <p>Records are generated using a fixed seeded algorithm. Screens and exports derive from one data source. This artifact is intended to demonstrate application architecture and research workflow only. No real-world effect sizes, causal conclusions, biomarker validity or model generalization should be inferred.</p>
           <div className="downloadrow">
-          <button className="button primary" onClick={() => downloadJson(report(), 'research_demo_report.json')}>Download report JSON</button>
+          <button className="button primary" onClick={() => downloadJson({ ...report(), analyses: results }, 'research_demo_report.json')}>Download report JSON</button>
           <button className="button" onClick={() => window.print()}>Print / PDF</button>
           <button className="button" onClick={() => downloadCohort(data)}>Download cohort CSV</button>
           </div>
