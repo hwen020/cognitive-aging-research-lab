@@ -1,5 +1,7 @@
 # Cognitive Aging Research Lab — résumé variants
 
+[Live Demo](https://cognitive-aging-research-lab.onrender.com)
+
 ## Social Data Scientist
 
 - Built a reproducible Python pipeline for a 2,400-participant, five-wave synthetic cognitive aging cohort, verifying 12,000 complete observations, canonical CSV checksums, and monotone dropout and marker missingness scenarios.

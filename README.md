@@ -4,6 +4,8 @@ Longitudinal Cohort Analytics · Social Epidemiology · Biological Markers · Re
 
 One independent portfolio project explores social and biological questions using the same synthetic participants and visits. All scores and marker proxies come from simulation.
 
+[Live Demo](https://cognitive-aging-research-lab.onrender.com)
+
 ## Run the demo
 
 ```sh
