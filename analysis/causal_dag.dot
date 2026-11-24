@@ -1,0 +1,16 @@
+digraph full_cohort_simulator {
+  rankdir=LR;
+  Exposure [label="High/low deprivation assignment (time zero)"];
+  Age [label="Age before assignment"];
+  Education [label="Education before assignment"];
+  HTN [label="Simulated hypertension after assignment"];
+  CRP [label="CRP proxy after assignment"];
+  PTau [label="p-tau proxy by Year 8"];
+  Person [label="Individual intercept (independent simulated noise)"];
+  Outcome [label="Year-8 cognition"];
+  Exposure -> {HTN CRP Outcome};
+  Age -> {HTN PTau Outcome};
+  Education -> Outcome;
+  HTN -> {CRP Outcome};
+  {CRP PTau Person} -> Outcome;
+}

@@ -22,7 +22,12 @@ test('navigation, accessible chart values, and browser history', async ({ page }
   await expect(page.getByRole('heading', { name: 'Prediction Modeling' })).toBeVisible();
   await page.getByRole('link', { name: 'Longitudinal Analysis' }).click();
   await page.locator('#longitudinal').getByText('Trajectory values', { exact: true }).click();
-  await expect(page.getByRole('table').getByRole('row')).toHaveCount(11);
+  await expect(page.getByRole('region', { name: 'Trajectory values' }).getByRole('row')).toHaveCount(11);
+  await expect(page.getByRole('region', { name: 'Adjusted longitudinal estimates' })).toBeVisible();
+  await page.getByRole('link', { name: 'Causal Inference' }).click();
+  await expect(page.getByRole('region', { name: 'Covariate balance' })).toBeVisible();
+  await expect(page.getByRole('region', { name: 'Weight truncation sensitivity' }).getByRole('row')).toHaveCount(4);
+  await expect(page.getByText('Incomplete simulation effect withheld.')).toBeVisible();
   expect(errors).toEqual([]);
 });
 

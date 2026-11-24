@@ -2,6 +2,197 @@
   "cohort": {
     "complete": {
       "csv_sha256": "5104d2c3ca510a4f0ac537652c3f4b76f6b4e567d42cad9029c3b24b5297de74",
+      "iptw": {
+        "adjustment": [
+          "age_at_baseline",
+          "education_years",
+          "sex_female"
+        ],
+        "assumptions": [
+          "Synthetic exposure draw is independent of pre-exposure attributes.",
+          "Baseline clinical proxies and biomarkers are excluded from the adjustment set.",
+          "No transport to observed neighborhood interventions or populations."
+        ],
+        "bootstrap_replications": 500,
+        "diagnostics": {
+          "balance": [
+            {
+              "covariate": "age_at_baseline",
+              "smd_after": -3.2932417869432655e-05,
+              "smd_before": 0.030859670123895816
+            },
+            {
+              "covariate": "education_years",
+              "smd_after": -1.949675818350306e-07,
+              "smd_before": 0.021212379397450517
+            },
+            {
+              "covariate": "sex_female",
+              "smd_after": -0.00016057156348243658,
+              "smd_before": 0.005159996304671776
+            }
+          ],
+          "common_support": [
+            0.46427742196472893,
+            0.5089834295063909
+          ],
+          "ess_low_high": [
+            1232.596506715988,
+            1166.5473701238832
+          ],
+          "fraction_in_common_support": 0.9991666666666666,
+          "passes": true,
+          "propensity_range": [
+            0.4634210482679117,
+            0.5095682281847457
+          ],
+          "weight_range": [
+            0.9542392423722863,
+            1.04926179295786
+          ]
+        },
+        "estimand": "Simulated baseline population ATE of high versus low assignment on Year-8 cognition",
+        "n": 2400,
+        "n_high": 1167,
+        "status": "computed",
+        "weight_sensitivity": [
+          {
+            "ci95": [
+              -5.5724911304957825,
+              -5.0221232408556835
+            ],
+            "diagnostics": {
+              "balance": [
+                {
+                  "covariate": "age_at_baseline",
+                  "smd_after": -3.2932417869432655e-05,
+                  "smd_before": 0.030859670123895816
+                },
+                {
+                  "covariate": "education_years",
+                  "smd_after": -1.949675818350306e-07,
+                  "smd_before": 0.021212379397450517
+                },
+                {
+                  "covariate": "sex_female",
+                  "smd_after": -0.00016057156348243658,
+                  "smd_before": 0.005159996304671776
+                }
+              ],
+              "common_support": [
+                0.46427742196472893,
+                0.5089834295063909
+              ],
+              "ess_low_high": [
+                1232.596506715988,
+                1166.5473701238832
+              ],
+              "fraction_in_common_support": 0.9991666666666666,
+              "passes": true,
+              "propensity_range": [
+                0.4634210482679117,
+                0.5095682281847457
+              ],
+              "weight_range": [
+                0.9542392423722863,
+                1.04926179295786
+              ]
+            },
+            "estimate": -5.271953140059523,
+            "tail_quantile": 0
+          },
+          {
+            "ci95": [
+              -5.573134441305494,
+              -5.022062215187354
+            ],
+            "diagnostics": {
+              "balance": [
+                {
+                  "covariate": "age_at_baseline",
+                  "smd_after": 0.00013936634000248922,
+                  "smd_before": 0.030859670123895816
+                },
+                {
+                  "covariate": "education_years",
+                  "smd_after": 0.00016486089341264453,
+                  "smd_before": 0.021212379397450517
+                },
+                {
+                  "covariate": "sex_female",
+                  "smd_after": -6.667666310993163e-05,
+                  "smd_before": 0.005159996304671776
+                }
+              ],
+              "common_support": [
+                0.46427742196472893,
+                0.5089834295063909
+              ],
+              "ess_low_high": [
+                1232.5985003476137,
+                1166.5560376075891
+              ],
+              "fraction_in_common_support": 0.9991666666666666,
+              "passes": true,
+              "propensity_range": [
+                0.4634210482679117,
+                0.5095682281847457
+              ],
+              "weight_range": [
+                0.9617768064507229,
+                1.041298880227942
+              ]
+            },
+            "estimate": -5.272586073411929,
+            "tail_quantile": 0.01
+          },
+          {
+            "ci95": [
+              -5.582847800890016,
+              -5.019287309234416
+            ],
+            "diagnostics": {
+              "balance": [
+                {
+                  "covariate": "age_at_baseline",
+                  "smd_after": 0.0015292966462557686,
+                  "smd_before": 0.030859670123895816
+                },
+                {
+                  "covariate": "education_years",
+                  "smd_after": 0.001448726352280539,
+                  "smd_before": 0.021212379397450517
+                },
+                {
+                  "covariate": "sex_female",
+                  "smd_after": 0.0003447113543636698,
+                  "smd_before": 0.005159996304671776
+                }
+              ],
+              "common_support": [
+                0.46427742196472893,
+                0.5089834295063909
+              ],
+              "ess_low_high": [
+                1232.6266352915222,
+                1166.6050982460795
+              ],
+              "fraction_in_common_support": 0.9991666666666666,
+              "passes": true,
+              "propensity_range": [
+                0.4634210482679117,
+                0.5095682281847457
+              ],
+              "weight_range": [
+                0.9691487354624078,
+                1.031471473803807
+              ]
+            },
+            "estimate": -5.277375552549856,
+            "tail_quantile": 0.05
+          }
+        ]
+      },
       "missing": {
         "age_at_baseline": 0,
         "age_at_visit": 0,
@@ -169,6 +360,10 @@
     },
     "incomplete": {
       "csv_sha256": "506bcb34df4764c24cab64861625fd375afb390d6acf47d639af8e3df1d49764",
+      "iptw": {
+        "reason": "Year-8 attrition requires a separate censoring design.",
+        "status": "withheld"
+      },
       "missing": {
         "age_at_baseline": 0,
         "age_at_visit": 0,
@@ -341,6 +536,7 @@
   "seed": 20261123,
   "source": "deterministic synthetic simulation",
   "source_sha256": {
+    "analysis/causal.py": "6cb46b930bcf95340514875805604e138c313b702da7512eee259f13c440baed",
     "analysis/cohort.py": "080bfd33b58cf93e37b10f257b3de37172b6c80287695945075f2aaffbbdd48d",
     "analysis/r/fit.R": "48efe451cce7a2bb1a41b789bc128064c8d46e9cd9079653753684df16864594",
     "analysis/run.py": "30f9ce6c2f7327a20cacf51eb6a067f62d91a404f66577bb9935be3f5fcfb45d"

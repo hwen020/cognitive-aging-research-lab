@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { LongitudinalResults } from './ResearchResults';
+import { CausalResults } from './CausalResults';
 import { CohortStats, Scatter, SummaryStats, TrajectoryChart, TrajectorySummary } from './charts';
 import { columns, data, dictionary, downloadCohort, downloadJson, filterRows, format, pearson, report, reportCounts, type Marker } from './cohort';
 import './style.css';
@@ -146,7 +147,7 @@ export function App() {
           </div>
           <div className="flowbox">
           <b>Observational causal framework</b>
-          <small>DAG and estimand specification; no estimated effects yet</small>
+          <small>Directed graph, estimand and simulated IPTW diagnostics</small>
           </div>
           </div>
           </article>
@@ -308,46 +309,7 @@ export function App() {
           </div>
           <span className="pill social">Social DS</span>
           </div>
-          <div className="grid2">
-          <article className="panel card">
-          <div className="cardhead">
-          <h2>Illustrative causal DAG</h2>
-          <span className="pill social">Conceptual only</span>
-          </div>
-          <div className="dag">
-          <div className="node">Age · Sex<br />Early-life factors</div>
-          <div className="daglabel">→ confound →</div>
-          <div className="node out">Cognitive score</div>
-          <div className="daglabel">↓ confound</div>
-          <div className="node exp">Neighborhood<br />deprivation</div>
-          <div className="daglabel">↑ pathway ↑</div>
-          <div className="node">Education<br />vascular risk</div>
-          <div className="daglabel">→ mediation / confounding must be justified →</div>
-          <div className="node">Biological<br />markers</div>
-          </div>
-          <p className="footnote">Arrows are only a conceptual teaching aid. Actual DAG structure and adjustment sets require subject-matter review; not all variables are valid confounders.</p>
-          </article>
-          <article className="panel card">
-          <div className="cardhead">
-          <h2>Proposed estimand</h2>
-          </div>
-          <div className="flowbox">
-          <b>Exposure</b>
-          <small>High vs. low neighborhood deprivation at baseline</small>
-          </div>
-          <div className="arrow">↓</div>
-          <div className="flowbox">
-          <b>Outcome</b>
-          <small>Difference in cognitive score at Year 8</small>
-          </div>
-          <div className="arrow">↓</div>
-          <div className="flowbox">
-          <b>Method to implement</b>
-          <small>Propensity score diagnostics, stabilized IPTW, positivity checks, covariate balance, sensitivity analyses</small>
-          </div>
-          <div className="callout">IPTW effect estimate: not yet computed. Confounding, selection bias and measurement error can invalidate causal interpretations.</div>
-          </article>
-          </div>
+          <CausalResults />
         </section>
         <section id="biomarkers" hidden={page !== 'biomarkers'}>
           <div className="heading">
@@ -510,7 +472,7 @@ export function App() {
           <h3>Data provenance and quality</h3>
           <p id="reportCounts">{reportCounts}</p>
           <h3>Social research workstream</h3>
-          <p>Stratified synthetic cognitive trajectories are visualized for neighborhood deprivation groups. A causal estimand, an illustrative DAG and a future IPTW workflow are specified; no adjusted causal effect is estimated.</p>
+          <p>Stratified synthetic cognitive trajectories are visualized for neighborhood deprivation groups. The complete mode includes IPTW balance and overlap diagnostics, bootstrap uncertainty, and truncation sensitivity. The incomplete-mode effect is withheld because attrition requires a censoring design.</p>
           <h3>Biological research workstream</h3>
           <p>Three synthetic biomarker variables are explored using unadjusted Pearson associations with cognitive scores. These are demo variables, not medical measurements. Proposed next steps include adjusted models and multiple-testing controls.</p>
           <h3>Prediction protocol</h3>
